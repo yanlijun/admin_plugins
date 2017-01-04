@@ -1,0 +1,35 @@
+{
+  "name": "admin_plugins",
+  "version": "1.0.0",
+  "description": "SHIHUI ADMIN PLUGINS.",
+  "homepage": "",
+  "authors": "Kevin Yan",
+  "license": "MIT",
+  "keywords": [
+    "bootstrap",
+    "jquery",
+    "select2",
+    "tree",
+    "datepicker",
+    "fileuploader"
+  ],
+  "main": [
+    "*.css",
+    "*.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "test",
+    "Gemfile"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap": "latest",
+    "bootstrap-treeview": "latest",
+    "select2": "latest",
+    "ztree": "latest",
+	"moment": "latest",
+    "eonasdan-bootstrap-datetimepicker": "latest",
+    "bootstrap-fileinput": "latest"
+  }
+}
