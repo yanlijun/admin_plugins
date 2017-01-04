@@ -6,12 +6,12 @@
   "authors": "Kevin Yan",
   "license": "MIT",
   "keywords": [
-    "bootstrap",
     "jquery",
+    "bootstrap",
+    "datetimepicker",
     "select2",
-    "tree",
-    "datepicker",
-    "fileuploader"
+    "fileinput",
+    "tree"
   ],
   "main": [
     "*.css",

@@ -17,6 +17,6 @@
 ####V1.0.0
 1. jQuery，bootstrap为基本库
 2. datetimepicker
-3. fileinput
-4. select2
+3. select2
+4. fileinput
 5. zTree
