@@ -26,6 +26,8 @@
     "select2": "latest",
     "bootstrap-fileinput": "latest",
     "ztree": "latest",
-    "font-awesome": "latest"
+    "font-awesome": "latest",
+    "handlebars": "latest",
+    "jquery-ui": "latest"
   }
 }
