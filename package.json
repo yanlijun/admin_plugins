@@ -24,6 +24,6 @@
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "http-server -a 0.0.0.0 -p 8003 -c-1 ./"
+    "start": "http-server -a 0.0.0.0 -p 8001 -c-1 ./"
   }
 }

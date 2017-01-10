@@ -4,6 +4,11 @@
 <p>需node.js工具初始，请先安装node.js以及npm。</p>
 
 <h2>
+<a name="installation" class="anchor" href="#installation"><span class="mini-icon mini-icon-link"></span></a>安装依赖</h2>
+
+`npm install`
+
+<h2>
 <a name="installation" class="anchor" href="#installation"><span class="mini-icon mini-icon-link"></span></a>启动项目</h2>
 
 `npm start`

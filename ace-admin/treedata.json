@@ -1,7 +1,7 @@
 ﻿[
   { "name":"父节点1 - 展开", "open":true,
     "children": [
-      { "name":"父节点11 - 折叠",
+      { "name":"父节点11 - 展开", "open":true,
         "children": [
           { "name":"叶子节点111"},
           { "name":"叶子节点112"},

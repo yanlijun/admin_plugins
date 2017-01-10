@@ -13,10 +13,6 @@
     "fileinput",
     "tree"
   ],
-  "main": [
-    "*.css",
-    "*.js"
-  ],
   "ignore": [
     "**/.*",
     "test",
@@ -25,11 +21,11 @@
   "dependencies": {
     "jquery": "latest",
     "bootstrap": "latest",
-    "bootstrap-treeview": "latest",
-    "select2": "latest",
-    "ztree": "latest",
-	"moment": "latest",
+    "moment": "latest",
     "eonasdan-bootstrap-datetimepicker": "latest",
-    "bootstrap-fileinput": "latest"
+    "select2": "latest",
+    "bootstrap-fileinput": "latest",
+    "ztree": "latest",
+    "font-awesome": "latest"
   }
 }

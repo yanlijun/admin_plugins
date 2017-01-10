@@ -1,141 +1,158 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>实惠 - demo</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <link rel="shortcut icon" href="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>实惠 - demo</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="">
 
-  <!-- 公用样式 -->
-  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 公用样式 -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- 时间控件样式 -->
-  <link href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-  <!-- 选择控件样式 -->
-  <link href="bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
-  <style>.selectDemo{min-width:160px}</style>
-  <!-- 上传控件样式 -->
-  <link href="bower_components/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet">
-  <!-- 树形控件样式 -->
-  <link href="bower_components/ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
-
+    <!-- 时间控件样式 -->
+    <link href="eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <!-- 选择控件样式 -->
+    <link href="select2/dist/css/select2.min.css" rel="stylesheet">
+    <style>.selectDemo{min-width:160px}</style>
+    <!-- 上传控件样式 -->
+    <link href="bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet">
+    <!-- 树形控件样式 -->
+    <link href="ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-      <h2>时间控件demo</h2>
-      <div class="row">
+    <div class="row">
         <div class="col-sm-6">
-          <div class="form-group">
-            <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control" placeholder="开始时间">
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-              </span>
+            <h2>时间控件demo</h2>
+            <p><a href="http://eonasdan.github.io/bootstrap-datetimepicker" target="_blank">API地址</a></p>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker1">
+                            <input type="text" class="form-control" data-date-format="YYYY-MM-DD" placeholder="开始时间">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker2">
+                            <input type="text" class="form-control" placeholder="结束时间">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <div class="col-sm-6">
-          <div class="form-group">
-            <div class='input-group date' id='datetimepicker2'>
-              <input type='text' class="form-control" placeholder="结束时间">
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-            </div>
-          </div>
+            <h2>选择控件demo</h2>
+            <p><a href="https://select2.github.io/" target="_blank">API地址</a></p>
+            <select class="selectDemo" title="请选择">
+                <option></option>
+                <option>北京</option>
+                <option>上海</option>
+                <option>湖北</option>
+                <option>黑龙江</option>
+                <option>山东</option>
+                <option>海南</option>
+                <option>台湾</option>
+                <option>香港</option>
+            </select>
+            <br>
+            <br>
+            <select class="selectDemo" title="请选择" multiple>
+                <optgroup label="内陆">
+                    <option>北京</option>
+                    <option>上海</option>
+                    <option>武汉</option>
+                    <option>哈尔冰</option>
+                    <option>济南</option>
+                </optgroup>
+                <optgroup label="南海">
+                    <option>海口</option>
+                    <option>台北</option>
+                    <option>九龙</option>
+                </optgroup>
+            </select>
         </div>
-      </div>
     </div>
-    <div class="col-sm-6">
-      <h2>选择控件demo</h2>
-      <select class="selectDemo" title="请选择">
-        <option>请选择</option>
-        <option>北京</option>
-        <option>上海</option>
-        <option>湖北</option>
-        <option>黑龙江</option>
-        <option>山东</option>
-        <option>海南</option>
-        <option>台湾</option>
-        <option>香港</option>
-      </select>
-      <br>
-      <br>
-      <select class="selectDemo" title="请选择" multiple>
-        <option>请选择</option>
-        <option>北京</option>
-        <option>上海</option>
-        <option>武汉</option>
-        <option>哈尔冰</option>
-        <option>济南</option>
-        <option>海口</option>
-        <option>台北</option>
-        <option>九龙</option>
-      </select>
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>上传控件demo</h2>
+            <p><a href="https://github.com/kartik-v/bootstrap-fileinput" target="_blank">API地址</a></p>
+            <input id="input-1" type="file" name="input1[]" multiple class="file-loading">
+        </div>
+        <div class="col-sm-6">
+            <h2>树形控件demo</h2>
+            <p><a href="http://www.treejs.cn/" target="_blank">API地址</a></p>
+            <ul id="treeDemo" class="ztree"></ul>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6">
-      <h2>上传控件demo</h2>
-      <input id="input-1" type="file" name="input1[]" multiple class="file-loading">
-    </div>
-    <div class="col-sm-6">
-      <h2>树形控件demo</h2>
-      <ul id="treeDemo" class="ztree"></ul>
-    </div>
-  </div>
 </div>
-
+<br>
+<br>
 <!-- 公用JS -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
 
 <!-- 时间控件JS -->
-<script src="/bower_components/moment/min/moment.min.js"></script>
-<script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script src="moment/min/moment.min.js"></script>
+<script src="moment/locale/zh-cn.js"></script>
+<script src="eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <!-- 选择控件JS -->
-<script src="bower_components/select2/dist/js/select2.min.js"></script>
+<script src="select2/dist/js/select2.min.js"></script>
 <!-- 上传控件JS -->
-<script src="bower_components/bootstrap-fileinput/js/fileinput.min.js"></script>
-<script src="bower_components/bootstrap-fileinput/js/locales/zh.js"></script>
+<script src="bootstrap-fileinput/js/fileinput.min.js"></script>
+<script src="bootstrap-fileinput/js/locales/zh.js"></script>
 <!-- 树形控件JS -->
-<script src="/bower_components/ztree/js/jquery.ztree.core-3.5.min.js"></script>
+<script src="ztree/js/jquery.ztree.core-3.5.min.js"></script>
 
 <script>
-  $(function(){
-    // 时间控件调用
-    var $datetimepicker1 = $('#datetimepicker1');
-    var $datetimepicker2 = $('#datetimepicker2');
-    $datetimepicker1.datetimepicker();
-    $datetimepicker2.datetimepicker({
-      useCurrent: false //Important! See issue #1075
-    });
-    $datetimepicker1.on('dp.change', function(e) {
-      $datetimepicker2.data('DateTimePicker').minDate(e.date);
-    });
-    $datetimepicker2.on('dp.change', function(e) {
-      $datetimepicker1.data('DateTimePicker').maxDate(e.date);
-    });
+    $(function(){
+        // 时间控件调用
+        var $datetimepicker1 = $('#datetimepicker1');
+        var $datetimepicker2 = $('#datetimepicker2');
+        $datetimepicker1.datetimepicker({
+            allowInputToggle: true
+        });
+        $datetimepicker2.datetimepicker({
+            format: 'YYYY-MM-DD',
+            allowInputToggle: true,
+            useCurrent: false //Important! See issue #1075
+        });
+        $datetimepicker1.on('dp.change', function(e) {
+            $datetimepicker2.data('DateTimePicker').minDate(e.date);
+        });
+        $datetimepicker2.on('dp.change', function(e) {
+            $datetimepicker1.data('DateTimePicker').maxDate(e.date);
+        });
 
-    // 选择控件调用
-    $('.selectDemo').select2();
+        // 选择控件调用
+        $('.selectDemo').select2({
+            placeholder: '请选择'
+        });
 
-    // 上传控件调用
-    $('#input-1').fileinput({
-      language: 'zh'
-    });
+        // 上传控件调用
+        $('#input-1').fileinput({
+            language: 'zh'
+        });
+        $('.file-caption').on('click', function() {
+            $(this).next().find(':file').trigger('click');
+        });
 
-    // 树形控件调用
-    $.getJSON('treedata.json', function(data) {
-      data && $.fn.zTree.init($('#treeDemo'), {}, data);
+        // 树形控件调用
+        $.getJSON('treedata.json', function(data) {
+            data && $.fn.zTree.init($('#treeDemo'), {}, data);
+        });
     });
-  });
 </script>
 </body>
 </html>
