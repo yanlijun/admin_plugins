@@ -1,767 +1,476 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-		<meta charset="utf-8">
-		<title>form - Ace Admin</title>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta charset="utf-8">
+    <title>form - Ace Admin</title>
 
-		<meta name="keywords" content="">
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-		<!-- bootstrap & fontawesome -->
-		<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 
-		<!-- page specific plugin styles -->
-		<!-- text fonts -->
-		<link rel="stylesheet" href="assets/css/ace-fonts.css">
-		<!-- ace styles -->
-		<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
-		<!--[if lte IE 9]>
-		<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet">
-		<![endif]-->
-		<link rel="stylesheet" href="assets/css/ace-skins.min.css">
-		<!--[if lte IE 9]>
-		<link rel="stylesheet" href="assets/css/ace-ie.min.css">
-		<![endif]-->
-		<!-- 时间控件样式 -->
-		<link rel="stylesheet" href="../eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
-		<!-- 选择控件样式 -->
-		<link rel="stylesheet" href="../select2/dist/css/select2.min.css">
-		<!-- 上传控件样式 -->
-		<link rel="stylesheet" href="../bootstrap-fileinput/css/fileinput.min.css">
-		<!-- 树形控件样式 -->
-		<link rel="stylesheet" href="../ztree/css/zTreeStyle/zTreeStyle.css">
+    <!-- page specific plugin styles -->
+    <!-- text fonts -->
+    <link rel="stylesheet" href="assets/css/ace-fonts.css">
+    <!-- ace styles -->
+    <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet">
+    <![endif]-->
+    <link rel="stylesheet" href="assets/css/ace-skins.min.css">
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css">
+    <![endif]-->
+    <!-- 时间控件样式 -->
+    <link rel="stylesheet" href="../eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+    <!-- 选择控件样式 -->
+    <link rel="stylesheet" href="../select2/dist/css/select2.min.css">
+    <!-- 上传控件样式 -->
+    <link rel="stylesheet" href="../bootstrap-fileinput/css/fileinput.min.css">
+    <!-- 树形控件样式 -->
+    <link rel="stylesheet" href="../ztree/css/zTreeStyle/zTreeStyle.css">
+    <!-- JQuery UI -->
+    <link rel="stylesheet" href="../jquery-ui/themes/base/jquery-ui.min.css"/>
 
-		<!-- inline styles related to this page -->
-		<style>
-			body, h1, h2, h3, h4, h5, h6 {
-				font-family: 'Open Sans', 'Helvetica Neue', '微软雅黑', Helvetica, Arial, sans-serif;
-			}
-			.demo-item {
-				margin-bottom: 15px;
-			}
-			.selectDemo {
-				min-width: 160px
-			}
-			.file-input .btn {
-				border-width: 1px;
-			}
-		</style>
+    <!-- inline styles related to this page -->
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: 'Open Sans', 'Helvetica Neue', '微软雅黑', Helvetica, Arial, sans-serif;
+        }
 
-		<!-- ace settings handler -->
-		<script src="assets/js/ace-extra.min.js"></script>
+        .demo-item {
+            margin-bottom: 15px;
+        }
 
-		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
-		<!--[if lte IE 8]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
-	</head>
+        .selectDemo {
+            min-width: 160px
+        }
 
-	<body class="no-skin">
-		<div id="navbar" class="navbar navbar-default ace-save-state">
-			<div class="navbar-container ace-save-state" id="navbar-container">
-				<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
-					<span class="sr-only">Toggle sidebar</span>
+        .file-input .btn {
+            border-width: 1px;
+        }
+    </style>
 
-					<span class="icon-bar"></span>
+    <!-- ace settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
 
-					<span class="icon-bar"></span>
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+    <!--[if lte IE 8]>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
 
-					<span class="icon-bar"></span>
-				</button>
+<body class="no-skin">
+<div id="navbar" class="navbar navbar-default ace-save-state">
+    <div class="navbar-container ace-save-state" id="navbar-container">
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+            <span class="sr-only">Toggle sidebar</span>
 
-				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
-						<small>
-							<i class="fa fa-leaf"></i>
-							Ace Admin
-						</small>
-					</a>
-				</div>
+            <span class="icon-bar"></span>
 
-				<div class="navbar-buttons" role="navigation">
-					<ul class="nav ace-nav pull-left">
-						<li class="light-blue no-border margin-4"><a href="./">表单</a></li>
-						<li class="light-blue no-border"><a href="list.html">列表</a></li>
-					</ul>
-					<ul class="nav ace-nav pull-right">
-						<li class="light-blue dropdown-modal">
-							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
-								<span class="user-info">
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+        </button>
+
+        <div class="navbar-header pull-left">
+            <a href="index.html" class="navbar-brand">
+                <small>
+                    <i class="fa fa-leaf"></i>
+                    Ace Admin
+                </small>
+            </a>
+        </div>
+
+        <div class="navbar-buttons" role="navigation">
+            <ul class="nav ace-nav pull-left">
+                <li class="light-blue no-border margin-4"><a href="./">表单</a></li>
+                <li class="light-blue no-border"><a href="list.html">列表</a></li>
+            </ul>
+            <ul class="nav ace-nav pull-right">
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo"/>
+                        <span class="user-info">
 									<small>Welcome,</small>
 									Jason
 								</span>
 
-								<i class="ace-icon fa fa-caret-down"></i>
-							</a>
-
-							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-cog"></i>
-										Settings
-									</a>
-								</li>
-
-								<li>
-									<a href="profile.html">
-										<i class="ace-icon fa fa-user"></i>
-										Profile
-									</a>
-								</li>
-
-								<li class="divider"></li>
-
-								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-power-off"></i>
-										Logout
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div><!-- /.navbar-container -->
-		</div>
-
-		<div class="main-container ace-save-state" id="main-container">
-			<script type="text/javascript">
-				try{ace.settings.loadState('main-container')}catch(e){}
-			</script>
-
-			<div id="sidebar" class="sidebar responsive ace-save-state">
-				<script type="text/javascript">
-					try{ace.settings.loadState('sidebar')}catch(e){}
-				</script>
-
-				<ul class="nav nav-list">
-					<li class="">
-						<a href="index.html">
-							<i class="menu-icon fa fa-tachometer"></i>
-							<span class="menu-text"> Dashboard </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-desktop"></i>
-							<span class="menu-text">
-								UI &amp; Elements
-							</span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-
-									Layouts
-									<b class="arrow fa fa-angle-down"></b>
-								</a>
-
-								<b class="arrow"></b>
-
-								<ul class="submenu">
-									<li class="">
-										<a href="top-menu.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Top Menu
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="two-menu-1.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Two Menus 1
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="two-menu-2.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Two Menus 2
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="mobile-menu-1.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Default Mobile Menu
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="mobile-menu-2.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Mobile Menu 2
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="mobile-menu-3.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Mobile Menu 3
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-								</ul>
-							</li>
-
-							<li class="">
-								<a href="typography.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Typography
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="elements.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Elements
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="buttons.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Buttons &amp; Icons
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="content-slider.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Content Sliders
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="treeview.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Treeview
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="jquery-ui.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									jQuery UI
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="nestable-list.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Nestable Lists
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-
-									Three Level Menu
-									<b class="arrow fa fa-angle-down"></b>
-								</a>
-
-								<b class="arrow"></b>
-
-								<ul class="submenu">
-									<li class="">
-										<a href="#">
-											<i class="menu-icon fa fa-leaf green"></i>
-											Item #1
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="#" class="dropdown-toggle">
-											<i class="menu-icon fa fa-pencil orange"></i>
-
-											4th level
-											<b class="arrow fa fa-angle-down"></b>
-										</a>
-
-										<b class="arrow"></b>
-
-										<ul class="submenu">
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-plus purple"></i>
-													Add Product
-												</a>
-
-												<b class="arrow"></b>
-											</li>
-
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-eye pink"></i>
-													View Products
-												</a>
-
-												<b class="arrow"></b>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text"> Tables </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<a href="tables.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Simple &amp; Dynamic
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="jqgrid.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									jqGrid plugin
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-						</ul>
-					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-pencil-square-o"></i>
-							<span class="menu-text"> Forms </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<a href="form-elements.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Form Elements
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="form-elements-2.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Form Elements 2
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="form-wizard.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Wizard &amp; Validation
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="wysiwyg.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Wysiwyg &amp; Markdown
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="dropzone.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Dropzone File Upload
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-						</ul>
-					</li>
-
-					<li class="">
-						<a href="widgets.html">
-							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> Widgets </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="calendar.html">
-							<i class="menu-icon fa fa-calendar"></i>
-
-							<span class="menu-text">
-								Calendar
-
-								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
-									<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-								</span>
-							</span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="gallery.html">
-							<i class="menu-icon fa fa-picture-o"></i>
-							<span class="menu-text"> Gallery </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-tag"></i>
-							<span class="menu-text"> More Pages </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<a href="profile.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									User Profile
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="inbox.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Inbox
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="pricing.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Pricing Tables
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="invoice.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Invoice
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="timeline.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Timeline
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="search.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Search Results
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="email.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Email Templates
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="login.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Login &amp; Register
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-						</ul>
-					</li>
-
-					<li class="active open">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-file-o"></i>
-
-							<span class="menu-text">
-								Other Pages
-
-								<span class="badge badge-primary">5</span>
-							</span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<a href="faq.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									FAQ
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="error-404.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Error 404
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="error-500.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Error 500
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="grid.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Grid
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="active">
-								<a href="blank.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Blank Page
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-						</ul>
-					</li>
-				</ul><!-- /.nav-list -->
-
-				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-				</div>
-			</div>
-
-			<div class="main-content">
-				<div class="main-content-inner">
-					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
-						<ul class="breadcrumb">
-							<li>
-								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
-							</li>
-							<li>
-								<a href="#">Other Pages</a>
-							</li>
-							<li class="active">form</li>
-						</ul><!-- /.breadcrumb -->
-
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="ace-icon fa fa-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="profile.html">
+                                <i class="ace-icon fa fa-user"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="#">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div><!-- /.navbar-container -->
+</div>
+
+<div class="main-container ace-save-state" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.loadState('main-container')
+        } catch (e) {
+        }
+    </script>
+
+    <div id="sidebar" class="sidebar responsive ace-save-state">
+
+    </div>
+
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Other Pages</a>
+                    </li>
+                    <li class="active">form</li>
+                </ul><!-- /.breadcrumb -->
+
+                <div class="nav-search" id="nav-search">
+                    <form class="form-search">
 								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<input type="text" placeholder="Search ..." class="nav-search-input"
+                                           id="nav-search-input" autocomplete="off"/>
 									<i class="ace-icon fa fa-search nav-search-icon"></i>
 								</span>
-							</form>
-						</div><!-- /.nav-search -->
-					</div>
+                    </form>
+                </div><!-- /.nav-search -->
+            </div>
 
-					<div class="page-content">
-						<div class="row">
-							<div class="col-xs-12">
-								<!-- PAGE CONTENT BEGINS -->
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
 
-								<div class="row">
-									<div class="col-sm-6 col-md-7 col-lg-8">
-										<div class="demo-item">
-											<h4>
-												时间控件
-												<small><a href="http://eonasdan.github.io/bootstrap-datetimepicker" target="_blank">API地址</a></small>
-											</h4>
-											<div class="row">
-												<div class="col-sm-6">
-													<div class="form-group">
-														<div class="input-group date" id="datetimepicker1">
-															<input type="text" class="form-control" data-date-format="YYYY-MM-DD" placeholder="开始时间">
-															<span class="input-group-addon">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-7 col-lg-8">
+                                <div class="demo-item">
+                                    <h4>
+                                        时间控件
+                                        <small><a href="http://eonasdan.github.io/bootstrap-datetimepicker"
+                                                  target="_blank">API地址</a></small>
+                                    </h4>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="input-group date" id="datetimepicker1">
+                                                    <input type="text" class="form-control"
+                                                           data-date-format="YYYY-MM-DD" placeholder="开始时间">
+                                                    <span class="input-group-addon">
 															<span class="glyphicon glyphicon-calendar"></span>
 														</span>
-														</div>
-													</div>
-												</div>
-												<div class="col-sm-6">
-													<div class="form-group">
-														<div class="input-group date" id="datetimepicker2">
-															<input type="text" class="form-control" placeholder="结束时间">
-															<span class="input-group-addon">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="input-group date" id="datetimepicker2">
+                                                    <input type="text" class="form-control" placeholder="结束时间">
+                                                    <span class="input-group-addon">
 															<span class="glyphicon glyphicon-calendar"></span>
 														</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-										<div class="demo-item">
-											<h4>
-												选择控件
-												<small><a href="https://select2.github.io/" target="_blank">API地址</a></small>
-											</h4>
-											<select class="selectDemo" title="请选择">
-												<option></option>
-												<option>北京</option>
-												<option>上海</option>
-												<option>湖北</option>
-												<option>黑龙江</option>
-												<option>山东</option>
-												<option>海南</option>
-												<option>台湾</option>
-												<option>香港</option>
-											</select>
-											<br>
-											<br>
-											<select class="selectDemo" title="请选择" multiple>
-												<optgroup label="内陆">
-													<option>北京</option>
-													<option>上海</option>
-													<option>武汉</option>
-													<option>哈尔冰</option>
-													<option>济南</option>
-												</optgroup>
-												<optgroup label="南海">
-													<option>海口</option>
-													<option>台北</option>
-													<option>九龙</option>
-												</optgroup>
-											</select>
-										</div>
+                                <div class="row">
+                                    <div class="col-sm-6">
 
-										<div class="demo-item">
-											<h4>
-												上传控件
-												<small><a href="https://github.com/kartik-v/bootstrap-fileinput" target="_blank">API地址</a></small>
-											</h4>
-											<input id="input-1" type="file" name="input1[]" multiple class="file-loading">
-										</div>
+                                        <div class="demo-item">
+                                            <h4>
+                                                选择控件
+                                                <small><a href="https://select2.github.io/" target="_blank">API地址</a>
+                                                </small>
+                                            </h4>
+                                            <select class="selectDemo" title="请选择">
+                                                <option></option>
+                                                <option>北京</option>
+                                                <option>上海</option>
+                                                <option>湖北</option>
+                                                <option>黑龙江</option>
+                                                <option>山东</option>
+                                                <option>海南</option>
+                                                <option>台湾</option>
+                                                <option>香港</option>
+                                            </select>
+                                            <br>
+                                            <br>
+                                            <select class="selectDemo" title="请选择" multiple>
+                                                <optgroup label="内陆">
+                                                    <option>北京</option>
+                                                    <option>上海</option>
+                                                    <option>武汉</option>
+                                                    <option>哈尔冰</option>
+                                                    <option>济南</option>
+                                                </optgroup>
+                                                <optgroup label="南海">
+                                                    <option>海口</option>
+                                                    <option>台北</option>
+                                                    <option>九龙</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                        <div class="demo-item">
+                                            <h4>
+                                                上传控件
+                                                <small><a href="https://github.com/kartik-v/bootstrap-fileinput"
+                                                          target="_blank">API地址</a></small>
+                                            </h4>
+                                            <input id="input-1" type="file" name="input1[]" multiple
+                                                   class="file-loading">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="demo-item">
+                                            <h4>
+                                                树形控件
+                                                <small><a href="http://www.treejs.cn/" target="_blank">API地址</a></small>
+                                            </h4>
+                                            <ul id="treeDemo" class="ztree"></ul>
+                                        </div>
+                                    </div>
+                                </div>
 
-										<div class="demo-item">
-											<h4>
-												树形控件
-												<small><a href="http://www.treejs.cn/" target="_blank">API地址</a></small>
-											</h4>
-											<ul id="treeDemo" class="ztree"></ul>
-										</div>
 
-										<div class="demo-item">
-											<h4>切换开关</h4>
-											<label>
-												<input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox" />
-												<span class="lbl"></span>
-											</label>
-										</div>
 
-										<div class="demo-item" id="tmpTest"></div>
-									</div>
-								</div>
 
-								<!-- PAGE CONTENT ENDS -->
-							</div><!-- /.col -->
-						</div><!-- /.row -->
-					</div><!-- /.page-content -->
-				</div>
-			</div><!-- /.main-content -->
+                                <div class="row">
+                                    <div class="col-sm-6">
 
-			<div class="footer">
-				<div class="footer-inner">
-					<div class="footer-content">
+                                        <div class="demo-item">
+                                            <h4>多选框</h4>
+                                            <div class="control-group">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input name="form-field-checkbox" type="checkbox" class="ace"/>
+                                                        <span class="lbl"> choice 1</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input name="form-field-checkbox" type="checkbox" class="ace"/>
+                                                        <span class="lbl"> choice 2</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input name="form-field-checkbox" class="ace ace-checkbox-2"
+                                                               type="checkbox"/>
+                                                        <span class="lbl"> choice 3</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="checkbox">
+                                                    <label class="block">
+                                                        <input name="form-field-checkbox" disabled="" type="checkbox"
+                                                               class="ace"/>
+                                                        <span class="lbl"> disabled</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="checkbox">
+                                                    <label class="block">
+                                                        <input name="form-field-checkbox" type="checkbox"
+                                                               class="ace input-lg"/>
+                                                        <span class="lbl bigger-120"> large checkbox</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="demo-item">
+                                            <h4>单选框</h4>
+                                            <div class="control-group">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="form-field-radio" type="radio" class="ace"/>
+                                                        <span class="lbl"> radio option 1</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="form-field-radio" type="radio" class="ace"/>
+                                                        <span class="lbl"> radio option 2</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="form-field-radio" type="radio" class="ace"/>
+                                                        <span class="lbl"> radio option 3</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio">
+                                                    <label>
+                                                        <input disabled="" name="form-field-radio" type="radio"
+                                                               class="ace"/>
+                                                        <span class="lbl"> disabled</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio">
+                                                    <label>
+                                                        <input name="form-field-radio" type="radio"
+                                                               class="ace input-lg"/>
+                                                        <span class="lbl bigger-120"> large radio</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="demo-item">
+
+                                            <h4>表单控件</h4>
+
+                                            <div class="widget-box">
+                                                <div class="widget-header">
+                                                    <h4 class="widget-title">Default</h4>
+                                                </div>
+
+                                                <div class="widget-body">
+                                                    <div class="widget-main no-padding">
+                                                        <form>
+                                                            <!-- <legend>Form</legend> -->
+                                                            <fieldset>
+                                                                <label>Label name</label>
+
+                                                                <input type="text"
+                                                                       placeholder="Type something&hellip;"/>
+                                                                <span class="help-block">Example block-level help text here.</span>
+
+                                                                <label class="pull-right">
+                                                                    <input type="checkbox" class="ace"/>
+                                                                    <span class="lbl"> check me out</span>
+                                                                </label>
+                                                            </fieldset>
+
+                                                            <div class="form-actions center">
+                                                                <button type="button" class="btn btn-sm btn-success">
+                                                                    Submit
+                                                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="demo-item">
+                                            <h4>切换开关</h4>
+                                            <label>
+                                                <input name="switch-field-1" class="ace ace-switch ace-switch-5"
+                                                       type="checkbox"/>
+                                                <span class="lbl"></span>
+                                            </label>
+                                        </div>
+
+                                        <div class="demo-item">
+                                            <h4>对话框控件
+                                                <small><a href="http://jqueryui.com/dialog/" target="_blank">API地址</a></small>
+                                            </h4>
+                                            <a href="#" id="id-btn-dialog2" class="btn btn-info btn-sm">Confirm Dialog</a>
+                                            <br><br>
+                                            <a href="#" id="id-btn-dialog1" class="btn btn-purple btn-sm">Modal Dialog</a>
+
+                                            <div id="dialog-message" class="hide">
+                                                <p>
+                                                    This is the default dialog which is useful for displaying information. The
+                                                    dialog window can be moved, resized and closed with the 'x' icon.
+                                                </p>
+
+                                                <div class="hr hr-12 hr-double"></div>
+
+                                                <p>
+                                                    Currently using
+                                                    <b>36% of your storage space</b>.
+                                                </p>
+                                            </div><!-- #dialog-message -->
+
+                                            <div id="dialog-confirm" class="hide">
+                                                <div class="alert alert-info bigger-110">
+                                                    These items will be permanently deleted and cannot be recovered.
+                                                </div>
+
+                                                <div class="space-6"></div>
+
+                                                <p class="bigger-110 bolder center grey">
+                                                    <i class="ace-icon fa fa-hand-o-right blue bigger-120"></i>
+                                                    Are you sure?
+                                                </p>
+                                            </div><!-- #dialog-confirm -->
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
 						<span class="bigger-120">
 							<span class="blue bolder">Ace</span>
 							Application &copy; 2013-2014
 						</span>
 
-						<span class="action-buttons">
+                <span class="action-buttons">
 							<a href="#">
 								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
 							</a>
@@ -774,299 +483,218 @@
 								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
 							</a>
 						</span>
-					</div>
-				</div>
-			</div>
+            </div>
+        </div>
+    </div>
 
-			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-			</a>
-		</div><!-- /.main-container -->
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
 
-		<!-- basic scripts -->
-		<!--[if !IE]> -->
-		<script src="../jquery/dist/jquery.min.js"></script>
-		<!-- <![endif]-->
-		<!--[if IE]>
-		<script src="assets/js/jquery-1.11.3.min.js"></script>
-		<![endif]-->
-		<script>
-			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-		</script>
-		<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- basic scripts -->
+<!--[if !IE]> -->
+<script src="../jquery/dist/jquery.min.js"></script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+<script>
+    if ('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
 
-		<!-- page specific plugin scripts -->
-		<!-- 时间控件JS -->
-		<script src="../moment/min/moment.min.js"></script>
-		<script src="../moment/locale/zh-cn.js"></script>
-		<script src="../eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-		<!-- 选择控件JS -->
-		<script src="../select2/dist/js/select2.min.js"></script>
-		<!-- 上传控件JS -->
-		<script src="../bootstrap-fileinput/js/fileinput.min.js"></script>
-		<script src="../bootstrap-fileinput/js/locales/zh.js"></script>
-		<!-- 树形控件JS -->
-		<script src="../ztree/js/jquery.ztree.core-3.5.min.js"></script>
-		<!-- 模板解析 -->
-		<script src="assets/js/mustache.min.js"></script>
+<!-- page specific plugin scripts -->
+<!-- 时间控件JS -->
+<script src="../moment/min/moment.min.js"></script>
+<script src="../moment/locale/zh-cn.js"></script>
+<script src="../eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<!-- 选择控件JS -->
+<script src="../select2/dist/js/select2.min.js"></script>
+<!-- 上传控件JS -->
+<script src="../bootstrap-fileinput/js/fileinput.min.js"></script>
+<script src="../bootstrap-fileinput/js/locales/zh.js"></script>
+<!-- 树形控件JS -->
+<script src="../ztree/js/jquery.ztree.core-3.5.min.js"></script>
+<!-- JQuery UI -->
+<script src="../jquery-ui/jquery-ui.min.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
 
-		<!-- ace scripts -->
-		<script src="assets/js/ace-elements.min.js"></script>
-		<script src="assets/js/ace.min.js"></script>
+<!-- 模板解析 -->
+<script src="../handlebars/handlebars.min.js"></script>
 
-		<!-- 模板 -->
-		<script id="template-mustache-menu" type="x-tmpl-mustache">
-		    {{#data}}
-				<li class="">
-					<a href="#"{{#children.length}} class="dropdown-toggle"{{/children.length}}>
-						<i class="menu-icon fa {{icon}}"></i>
-						<span class="menu-text">{{name}}</span>
+<!-- ace scripts -->
+<script src="assets/js/ace-elements.min.js"></script>
+<script src="assets/js/ace.min.js"></script>
 
-						<b class="arrow{{#children.length}} fa fa-angle-down{{/children.length}}"></b>
-					</a>
+<!-- 模板 -->
+<script id="template-handlebars-menu" type="text/x-handlebars-template">
 
-					<b class="arrow"></b>
+    {{#*inline "template-handlebars-menu-rec"}}
+    {{#each this}}
+    <li class="{{#if isSelected}} active {{#if children}} open {{/if}} {{/if}}">
 
-					{{#children.length}}
-					<ul class="submenu">
-						<li class="">
-							<a href="#" class="dropdown-toggle">
-								<i class="menu-icon fa fa-caret-right"></i>
+        <a href="{{#if url}}{{url}}{{else}}javascript:void(0);{{/if}}"
+           class="{{#if children}} dropdown-toggle {{/if}}">
+            {{#with icon}}
+            <i class="menu-icon fa {{this}}"></i>
+            {{else}}
+            <i class="menu-icon fa fa-caret-right"></i>
+            {{/with}}
+            <span class="menu-text">{{name}}</span>
+            <b class="arrow {{#if children}} fa fa-angle-down {{/if}}"></b>
+        </a>
 
-								Layouts
-								<b class="arrow fa fa-angle-down"></b>
-							</a>
+        <b class="arrow"></b>
 
-							<b class="arrow"></b>
+        {{#with children}}
+        <ul class="submenu">
+            {{> template-handlebars-menu-rec this}}
+        </ul>
+        {{/with}}
 
-							<ul class="submenu">
-								<li class="">
-									<a href="top-menu.html">
-										<i class="menu-icon fa fa-caret-right"></i>
-										Top Menu
-									</a>
+    </li>
+    {{/each}}
+    {{/inline}}
 
-									<b class="arrow"></b>
-								</li>
+    {{#if data}}
+    <ul class="nav nav-list">
+        {{> template-handlebars-menu-rec data}}
+    </ul>
+    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+        <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
+           data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+    </div>
+    {{else}}
+    没有菜单 :(
+    {{/if}}
+</script>
 
-								<li class="">
-									<a href="two-menu-1.html">
-										<i class="menu-icon fa fa-caret-right"></i>
-										Two Menus 1
-									</a>
+<!-- inline scripts related to this page -->
+<script>
+    $(function () {
+        // 时间控件调用
+        var $datetimepicker1 = $('#datetimepicker1');
+        var $datetimepicker2 = $('#datetimepicker2');
+        $datetimepicker1.datetimepicker({
+            allowInputToggle: true
+        });
+        $datetimepicker2.datetimepicker({
+            format: 'YYYY-MM-DD',
+            allowInputToggle: true,
+            useCurrent: false //Important! See issue #1075
+        });
+        $datetimepicker1.on('dp.change', function (e) {
+            $datetimepicker2.data('DateTimePicker').minDate(e.date);
+        });
+        $datetimepicker2.on('dp.change', function (e) {
+            $datetimepicker1.data('DateTimePicker').maxDate(e.date);
+        });
 
-									<b class="arrow"></b>
-								</li>
+        // 选择控件调用
+        $('.selectDemo').select2({
+            placeholder: '请选择'
+        });
 
-								<li class="">
-									<a href="two-menu-2.html">
-										<i class="menu-icon fa fa-caret-right"></i>
-										Two Menus 2
-									</a>
+        // 上传控件调用
+        $('#input-1').fileinput({
+            language: 'zh'
+        });
+        $('.file-caption').on('click', function () {
+            $(this).next().find(':file').trigger('click');
+        });
 
-									<b class="arrow"></b>
-								</li>
+        // 树形控件调用
+        $.getJSON('treedata.json', function (data) {
+            data && $.fn.zTree.init($('#treeDemo'), {}, data);
+        });
 
-								<li class="">
-									<a href="mobile-menu-1.html">
-										<i class="menu-icon fa fa-caret-right"></i>
-										Default Mobile Menu
-									</a>
 
-									<b class="arrow"></b>
-								</li>
+        // 对话框调用
+        //override dialog's title function to allow for HTML titles
+        $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+            _title: function (title) {
+                var $title = this.options.title || '&nbsp;'
+                if (("title_html" in this.options) && this.options.title_html == true)
+                    title.html($title);
+                else title.text($title);
+            }
+        }));
 
-								<li class="">
-									<a href="mobile-menu-2.html">
-										<i class="menu-icon fa fa-caret-right"></i>
-										Mobile Menu 2
-									</a>
+        $("#id-btn-dialog1").on('click', function (e) {
+            e.preventDefault();
 
-									<b class="arrow"></b>
-								</li>
+            var dialog = $("#dialog-message").removeClass('hide').dialog({
+                modal: false, // 遮罩效果，true为遮罩
+                title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> jQuery UI Dialog</h4></div>",
+                title_html: true,
+                buttons: [
+                    {
+                        text: "Cancel",
+                        "class": "btn btn-minier",
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    },
+                    {
+                        text: "OK",
+                        "class": "btn btn-primary btn-minier",
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                ]
+            });
 
-								<li class="">
-									<a href="mobile-menu-3.html">
-										<i class="menu-icon fa fa-caret-right"></i>
-										Mobile Menu 3
-									</a>
+            /**
+             dialog.data( "uiDialog" )._title = function(title) {
+						title.html( this.options.title );
+					};
+             **/
+        });
 
-									<b class="arrow"></b>
-								</li>
-							</ul>
-						</li>
 
-						<li class="">
-							<a href="typography.html">
-								<i class="menu-icon fa fa-caret-right"></i>
-								Typography
-							</a>
+        $("#id-btn-dialog2").on('click', function (e) {
+            e.preventDefault();
 
-							<b class="arrow"></b>
-						</li>
+            $("#dialog-confirm").removeClass('hide').dialog({
+                resizable: false,
+                width: '320',
+                modal: true, // 遮罩效果，true为遮罩
+                title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i> Empty the recycle bin?</h4></div>",
+                title_html: true,
+                buttons: [
+                    {
+                        html: "<i class='ace-icon fa fa-trash-o bigger-110'></i>&nbsp; Delete all items",
+                        "class": "btn btn-danger btn-minier",
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                    ,
+                    {
+                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
+                        "class": "btn btn-minier",
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                ]
+            });
+        });
 
-						<li class="">
-							<a href="elements.html">
-								<i class="menu-icon fa fa-caret-right"></i>
-								Elements
-							</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="buttons.html">
-								<i class="menu-icon fa fa-caret-right"></i>
-								Buttons &amp; Icons
-							</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="content-slider.html">
-								<i class="menu-icon fa fa-caret-right"></i>
-								Content Sliders
-							</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="treeview.html">
-								<i class="menu-icon fa fa-caret-right"></i>
-								Treeview
-							</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="jquery-ui.html">
-								<i class="menu-icon fa fa-caret-right"></i>
-								jQuery UI
-							</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="nestable-list.html">
-								<i class="menu-icon fa fa-caret-right"></i>
-								Nestable Lists
-							</a>
-
-							<b class="arrow"></b>
-						</li>
-
-						<li class="">
-							<a href="#" class="dropdown-toggle">
-								<i class="menu-icon fa fa-caret-right"></i>
-
-								Three Level Menu
-								<b class="arrow fa fa-angle-down"></b>
-							</a>
-
-							<b class="arrow"></b>
-
-							<ul class="submenu">
-								<li class="">
-									<a href="#">
-										<i class="menu-icon fa fa-leaf green"></i>
-										Item #1
-									</a>
-
-									<b class="arrow"></b>
-								</li>
-
-								<li class="">
-									<a href="#" class="dropdown-toggle">
-										<i class="menu-icon fa fa-pencil orange"></i>
-
-										4th level
-										<b class="arrow fa fa-angle-down"></b>
-									</a>
-
-									<b class="arrow"></b>
-
-									<ul class="submenu">
-										<li class="">
-											<a href="#">
-												<i class="menu-icon fa fa-plus purple"></i>
-												Add Product
-											</a>
-
-											<b class="arrow"></b>
-										</li>
-
-										<li class="">
-											<a href="#">
-												<i class="menu-icon fa fa-eye pink"></i>
-												View Products
-											</a>
-
-											<b class="arrow"></b>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					{{/children.length}}
-				</li>
-		    {{/data}}
-			{{^data}}没有菜单 :({{/data}}
-		</script>
-
-		<!-- inline scripts related to this page -->
-		<script>
-			$(function(){
-				// 时间控件调用
-				var $datetimepicker1 = $('#datetimepicker1');
-				var $datetimepicker2 = $('#datetimepicker2');
-				$datetimepicker1.datetimepicker({
-					allowInputToggle: true
-				});
-				$datetimepicker2.datetimepicker({
-					format: 'YYYY-MM-DD',
-					allowInputToggle: true,
-					useCurrent: false //Important! See issue #1075
-				});
-				$datetimepicker1.on('dp.change', function(e) {
-					$datetimepicker2.data('DateTimePicker').minDate(e.date);
-				});
-				$datetimepicker2.on('dp.change', function(e) {
-					$datetimepicker1.data('DateTimePicker').maxDate(e.date);
-				});
-
-				// 选择控件调用
-				$('.selectDemo').select2({
-					placeholder: '请选择'
-				});
-
-				// 上传控件调用
-				$('#input-1').fileinput({
-					language: 'zh'
-				});
-				$('.file-caption').on('click', function() {
-					$(this).next().find(':file').trigger('click');
-				});
-
-				// 树形控件调用
-				$.getJSON('treedata.json', function(data) {
-					data && $.fn.zTree.init($('#treeDemo'), {}, data);
-				});
-
-				//菜单模板解析
-				$.getJSON('menudata.json', function(data) {
-					var template;
-					if (data) {
-						template = $('#template-mustache-menu').html();
-						Mustache.parse(template);  // optional, speeds up future uses
-						$('#tmpTest').html(Mustache.render(template, data));  // data.toJSON()
-					}
-				});
-			});
-		</script>
-	</body>
+        // 菜单模板解析
+        $.getJSON('menudata.json', function (data) {
+            if (data) {
+                // 预编译模板
+                var source = $('#template-handlebars-menu').html();
+                var template = Handlebars.compile(source);
+                // 设置HTML
+                $('#sidebar').html(template(data));
+                ace.settings.loadState('sidebar');
+            }
+        });
+    });
+</script>
+</body>
 </html>

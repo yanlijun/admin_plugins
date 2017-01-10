@@ -30,6 +30,7 @@
                   "icon": "fa-plus purple",
                   "url": "http://baidu.com" },
                 { "name": "查看",
+                  "isSelected": true,
                   "icon": "fa-eye pink",
                   "url": "http://google.com" }
               ] }
