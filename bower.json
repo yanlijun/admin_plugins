@@ -19,15 +19,16 @@
     "Gemfile"
   ],
   "dependencies": {
-    "jquery": "latest",
-    "bootstrap": "latest",
-    "moment": "latest",
-    "eonasdan-bootstrap-datetimepicker": "latest",
-    "select2": "latest",
-    "bootstrap-fileinput": "latest",
-    "ztree": "latest",
-    "font-awesome": "latest",
-    "handlebars": "latest",
-    "jquery-ui": "latest"
+    "jquery": "3",
+    "bootstrap": "3",
+    "moment": "2",
+    "eonasdan-bootstrap-datetimepicker": "4",
+    "select2": "4",
+    "bootstrap-fileinput": "4",
+    "ztree": "3",
+    "font-awesome": "4",
+    "handlebars": "4",
+    "html5shiv": "3",
+    "respond": "1"
   }
 }

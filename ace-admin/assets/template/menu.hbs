@@ -1,0 +1,36 @@
+{{#*inline "template-handlebars-menu-rec"}}
+    {{#each this}}
+        <li class="{{#if isSelected}} active {{#if children}} open {{/if}} {{/if}}">
+            <a href="{{#if url}}{{url}}{{else}}javascript:void(0);{{/if}}"
+               class="{{#if children}} dropdown-toggle {{/if}}">
+                {{#with icon}}
+                    <i class="menu-icon fa {{this}}"></i>
+                {{else}}
+                    <i class="menu-icon fa fa-caret-right"></i>
+                {{/with}}
+                <span class="menu-text">{{name}}</span>
+                <b class="arrow {{#if children}} fa fa-angle-down {{/if}}"></b>
+            </a>
+
+            <b class="arrow"></b>
+
+            {{#with children}}
+                <ul class="submenu">
+                    {{> template-handlebars-menu-rec this}}
+                </ul>
+            {{/with}}
+        </li>
+    {{/each}}
+{{/inline}}
+
+{{#if data}}
+    <ul class="nav nav-list">
+        {{> template-handlebars-menu-rec data}}
+    </ul>
+    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+        <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
+           data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+    </div>
+{{else}}
+    没有菜单 :(
+{{/if}}

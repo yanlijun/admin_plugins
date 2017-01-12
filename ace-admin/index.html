@@ -33,8 +33,6 @@
     <link rel="stylesheet" href="../bootstrap-fileinput/css/fileinput.min.css">
     <!-- 树形控件样式 -->
     <link rel="stylesheet" href="../ztree/css/zTreeStyle/zTreeStyle.css">
-    <!-- JQuery UI -->
-    <link rel="stylesheet" href="../jquery-ui/themes/base/jquery-ui.min.css"/>
 
     <!-- inline styles related to this page -->
     <style>
@@ -60,8 +58,8 @@
 
     <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
     <!--[if lte IE 8]>
-    <script src="assets/js/html5shiv.min.js"></script>
-    <script src="assets/js/respond.min.js"></script>
+    <script src="../html5shiv/dist/html5shiv.min.js"></script>
+    <script src="../respond/dest/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -162,11 +160,11 @@
 
                 <div class="nav-search" id="nav-search">
                     <form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input"
-                                           id="nav-search-input" autocomplete="off"/>
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
+                        <span class="input-icon">
+                            <input type="text" placeholder="Search ..." class="nav-search-input"
+                                   id="nav-search-input" autocomplete="off"/>
+                            <i class="ace-icon fa fa-search nav-search-icon"></i>
+                        </span>
                     </form>
                 </div><!-- /.nav-search -->
             </div>
@@ -265,10 +263,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
+								
                                 <div class="row">
                                     <div class="col-sm-6">
 
@@ -464,24 +459,24 @@
     <div class="footer">
         <div class="footer-inner">
             <div class="footer-content">
-						<span class="bigger-120">
-							<span class="blue bolder">Ace</span>
-							Application &copy; 2013-2014
-						</span>
+                <span class="bigger-120">
+                    <span class="blue bolder">Ace</span>
+                    Application &copy; 2013-2014
+                </span>
 
                 <span class="action-buttons">
-							<a href="#">
-								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-							</a>
+                    <a href="#">
+                        <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                    </a>
 
-							<a href="#">
-								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-							</a>
+                    <a href="#">
+                        <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+                    </a>
 
-							<a href="#">
-								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-							</a>
-						</span>
+                    <a href="#">
+                        <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                    </a>
+                </span>
             </div>
         </div>
     </div>
@@ -515,59 +510,12 @@
 <script src="../bootstrap-fileinput/js/locales/zh.js"></script>
 <!-- 树形控件JS -->
 <script src="../ztree/js/jquery.ztree.core-3.5.min.js"></script>
-<!-- JQuery UI -->
-<script src="../jquery-ui/jquery-ui.min.js"></script>
-<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
-
 <!-- 模板解析 -->
 <script src="../handlebars/handlebars.min.js"></script>
 
 <!-- ace scripts -->
 <script src="assets/js/ace-elements.min.js"></script>
 <script src="assets/js/ace.min.js"></script>
-
-<!-- 模板 -->
-<script id="template-handlebars-menu" type="text/x-handlebars-template">
-
-    {{#*inline "template-handlebars-menu-rec"}}
-    {{#each this}}
-    <li class="{{#if isSelected}} active {{#if children}} open {{/if}} {{/if}}">
-
-        <a href="{{#if url}}{{url}}{{else}}javascript:void(0);{{/if}}"
-           class="{{#if children}} dropdown-toggle {{/if}}">
-            {{#with icon}}
-            <i class="menu-icon fa {{this}}"></i>
-            {{else}}
-            <i class="menu-icon fa fa-caret-right"></i>
-            {{/with}}
-            <span class="menu-text">{{name}}</span>
-            <b class="arrow {{#if children}} fa fa-angle-down {{/if}}"></b>
-        </a>
-
-        <b class="arrow"></b>
-
-        {{#with children}}
-        <ul class="submenu">
-            {{> template-handlebars-menu-rec this}}
-        </ul>
-        {{/with}}
-
-    </li>
-    {{/each}}
-    {{/inline}}
-
-    {{#if data}}
-    <ul class="nav nav-list">
-        {{> template-handlebars-menu-rec data}}
-    </ul>
-    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-        <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
-           data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-    </div>
-    {{else}}
-    没有菜单 :(
-    {{/if}}
-</script>
 
 <!-- inline scripts related to this page -->
 <script>
@@ -583,10 +531,10 @@
             allowInputToggle: true,
             useCurrent: false //Important! See issue #1075
         });
-        $datetimepicker1.on('dp.change', function (e) {
+        $datetimepicker1.on('dp.change', function(e) {
             $datetimepicker2.data('DateTimePicker').minDate(e.date);
         });
-        $datetimepicker2.on('dp.change', function (e) {
+        $datetimepicker2.on('dp.change', function(e) {
             $datetimepicker1.data('DateTimePicker').maxDate(e.date);
         });
 
@@ -599,100 +547,28 @@
         $('#input-1').fileinput({
             language: 'zh'
         });
-        $('.file-caption').on('click', function () {
+        $('.file-caption').on('click', function() {
             $(this).next().find(':file').trigger('click');
         });
 
         // 树形控件调用
-        $.getJSON('treedata.json', function (data) {
+        $.getJSON('assets/data/tree.json', function(data) {
             data && $.fn.zTree.init($('#treeDemo'), {}, data);
         });
 
-
-        // 对话框调用
-        //override dialog's title function to allow for HTML titles
-        $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
-            _title: function (title) {
-                var $title = this.options.title || '&nbsp;'
-                if (("title_html" in this.options) && this.options.title_html == true)
-                    title.html($title);
-                else title.text($title);
-            }
-        }));
-
-        $("#id-btn-dialog1").on('click', function (e) {
-            e.preventDefault();
-
-            var dialog = $("#dialog-message").removeClass('hide').dialog({
-                modal: false, // 遮罩效果，true为遮罩
-                title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> jQuery UI Dialog</h4></div>",
-                title_html: true,
-                buttons: [
-                    {
-                        text: "Cancel",
-                        "class": "btn btn-minier",
-                        click: function () {
-                            $(this).dialog("close");
-                        }
-                    },
-                    {
-                        text: "OK",
-                        "class": "btn btn-primary btn-minier",
-                        click: function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                ]
-            });
-
-            /**
-             dialog.data( "uiDialog" )._title = function(title) {
-						title.html( this.options.title );
-					};
-             **/
-        });
-
-
-        $("#id-btn-dialog2").on('click', function (e) {
-            e.preventDefault();
-
-            $("#dialog-confirm").removeClass('hide').dialog({
-                resizable: false,
-                width: '320',
-                modal: true, // 遮罩效果，true为遮罩
-                title: "<div class='widget-header'><h4 class='smaller'><i class='ace-icon fa fa-exclamation-triangle red'></i> Empty the recycle bin?</h4></div>",
-                title_html: true,
-                buttons: [
-                    {
-                        html: "<i class='ace-icon fa fa-trash-o bigger-110'></i>&nbsp; Delete all items",
-                        "class": "btn btn-danger btn-minier",
-                        click: function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                    ,
-                    {
-                        html: "<i class='ace-icon fa fa-times bigger-110'></i>&nbsp; Cancel",
-                        "class": "btn btn-minier",
-                        click: function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                ]
-            });
-        });
-
         // 菜单模板解析
-        $.getJSON('menudata.json', function (data) {
-            if (data) {
+        $('<div>').load('assets/template/menu.hbs', function(source) {
+            $.getJSON('assets/data/menu.json', function(data) {
                 // 预编译模板
-                var source = $('#template-handlebars-menu').html();
                 var template = Handlebars.compile(source);
-                // 设置HTML
-                $('#sidebar').html(template(data));
-                ace.settings.loadState('sidebar');
-            }
+                if (data) {
+                    // 设置HTML
+                    $('#sidebar').html(template(data));
+                    ace.settings.loadState('sidebar');
+                }
+            });
         });
+		
     });
 </script>
 </body>
