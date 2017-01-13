@@ -51,6 +51,24 @@
         .file-input .btn {
             border-width: 1px;
         }
+		
+        /*模态框垂直居中*/
+        .modal {
+            text-align: center;
+            padding: 0!important;
+        }
+        .modal:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -4px;
+        }
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
     </style>
 
     <!-- ace settings handler -->
@@ -87,17 +105,17 @@
 
         <div class="navbar-buttons" role="navigation">
             <ul class="nav ace-nav pull-left">
-                <li class="light-blue no-border margin-4"><a href="./">表单</a></li>
-                <li class="light-blue no-border"><a href="list.html">列表</a></li>
+                <li class="transparent no-border margin-1 open"><a href="./">表单</a></li>
+                <li class="transparent no-border margin-1"><a href="list.html">列表</a></li>
             </ul>
             <ul class="nav ace-nav pull-right">
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                         <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo"/>
                         <span class="user-info">
-									<small>Welcome,</small>
-									Jason
-								</span>
+							<small>Welcome,</small>
+							Jason
+						</span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
                     </a>
@@ -189,8 +207,8 @@
                                                     <input type="text" class="form-control"
                                                            data-date-format="YYYY-MM-DD" placeholder="开始时间">
                                                     <span class="input-group-addon">
-															<span class="glyphicon glyphicon-calendar"></span>
-														</span>
+														<span class="glyphicon glyphicon-calendar"></span>
+													</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -199,8 +217,8 @@
                                                 <div class="input-group date" id="datetimepicker2">
                                                     <input type="text" class="form-control" placeholder="结束时间">
                                                     <span class="input-group-addon">
-															<span class="glyphicon glyphicon-calendar"></span>
-														</span>
+														<span class="glyphicon glyphicon-calendar"></span>
+													</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -406,39 +424,10 @@
                                         </div>
 
                                         <div class="demo-item">
-                                            <h4>对话框控件
-                                                <small><a href="http://jqueryui.com/dialog/" target="_blank">API地址</a></small>
-                                            </h4>
-                                            <a href="#" id="id-btn-dialog2" class="btn btn-info btn-sm">Confirm Dialog</a>
-                                            <br><br>
-                                            <a href="#" id="id-btn-dialog1" class="btn btn-purple btn-sm">Modal Dialog</a>
-
-                                            <div id="dialog-message" class="hide">
-                                                <p>
-                                                    This is the default dialog which is useful for displaying information. The
-                                                    dialog window can be moved, resized and closed with the 'x' icon.
-                                                </p>
-
-                                                <div class="hr hr-12 hr-double"></div>
-
-                                                <p>
-                                                    Currently using
-                                                    <b>36% of your storage space</b>.
-                                                </p>
-                                            </div><!-- #dialog-message -->
-
-                                            <div id="dialog-confirm" class="hide">
-                                                <div class="alert alert-info bigger-110">
-                                                    These items will be permanently deleted and cannot be recovered.
-                                                </div>
-
-                                                <div class="space-6"></div>
-
-                                                <p class="bigger-110 bolder center grey">
-                                                    <i class="ace-icon fa fa-hand-o-right blue bigger-120"></i>
-                                                    Are you sure?
-                                                </p>
-                                            </div><!-- #dialog-confirm -->
+                                            <h4>对话框控件</h4>
+                                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                                Launch demo modal
+                                            </button>
                                         </div>
 
                                     </div>
@@ -485,6 +474,25 @@
         <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
     </a>
 </div><!-- /.main-container -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- basic scripts -->
 <!--[if !IE]> -->
