@@ -129,7 +129,7 @@
                         </li>
 
                         <li>
-                            <a href="profile.html">
+                            <a href="#">
                                 <i class="ace-icon fa fa-user"></i>
                                 Profile
                             </a>
@@ -429,12 +429,15 @@
                                                 Launch demo modal
                                             </button>
                                         </div>
-
+										<div class="demo-item">
+											<h4>确认框</h4>
+											<button type="button" class="btn btn-primary btn-confirm" data-toggle="modal" data-target="#myConfirm">
+												确定
+											</button>
+										</div>
                                     </div>
                                 </div>
-
-
-
+								
                             </div>
                         </div>
 
@@ -520,6 +523,8 @@
 <script src="../ztree/js/jquery.ztree.core-3.5.min.js"></script>
 <!-- 模板解析 -->
 <script src="../handlebars/handlebars.min.js"></script>
+<!-- 确认框 -->
+<script src="assets/js/bs.confirm.box.js"></script>
 
 <!-- ace scripts -->
 <script src="assets/js/ace-elements.min.js"></script>
@@ -577,6 +582,15 @@
             });
         });
 		
+        // 确认框
+        $('.btn-confirm').confirmBox({
+            title: '确认框确认框确认框',
+            content: '确定的内容确定的内容确定的内容确定的内容',
+            hasFade: true,
+            callback: function() {
+                console.log("关闭确认框后的相关处理");
+            }
+        });
     });
 </script>
 </body>
